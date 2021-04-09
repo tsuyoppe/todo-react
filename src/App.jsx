@@ -11,6 +11,13 @@ const App = () => {
   const onClickSwitchShowFlag = () => {
     setFaceShowFlag(!faceShowFlag);
   };
+
+  if (num % 3 === 0) {
+    faceShowFlag || setFaceShowFlag(true);
+  } else {
+    faceShowFlag && setFaceShowFlag(false);
+  }
+
   return (
     <>
       <h1 style={{ color: "red" }}>こんにちは！</h1>
@@ -20,7 +27,7 @@ const App = () => {
       <br />
       <button onClick={onClickSwitchShowFlag}>顔文字on/off</button>
       <p>{num}</p>
-      {faceShowFlag && <p>( ｀ー´)ノ</p>}
+      {faceShowFlag && <p>( ﾟДﾟ)( ﾟдﾟ)ﾊｯ!</p>}
     </>
   );
 };

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ColorFulMessage from "./components/ColorFulMessage";
-
+/* eslint react-hooks/exhaustive-deps: off */
 const App = () => {
   const [num, setNum] = useState(0);
-  const [faceShowFlag, setFaceShowFlag] = useState(true);
+  const [faceShowFlag, setFaceShowFlag] = useState(false);
   const onClickCountUp = () => {
     setNum(num + 1);
   };
@@ -12,11 +12,16 @@ const App = () => {
     setFaceShowFlag(!faceShowFlag);
   };
 
-  if (num % 3 === 0) {
-    faceShowFlag || setFaceShowFlag(true);
-  } else {
-    faceShowFlag && setFaceShowFlag(false);
-  }
+  //useEffectを用いる numの値が変更された時のみ実行する
+  useEffect(() => {
+    if (num > 0) {
+      if (num % 3 === 0) {
+        faceShowFlag || setFaceShowFlag(true);
+      } else {
+        faceShowFlag && setFaceShowFlag(false);
+      }
+    }
+  }, [num]);
 
   return (
     <>

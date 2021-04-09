@@ -6,7 +6,7 @@ const ColorFulMessage = (props) => {
     color,
     fontSize: "18px"
   };
-  console.log(props);
+  //  console.log(props);
   return <p style={contentStyle}>{children}</p>;
 };
 

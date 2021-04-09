@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ColorFulMessage from "./components/ColorFulMessage";
+import { ColorFulMessage } from "./components/ColorFulMessage";
 /* eslint react-hooks/exhaustive-deps: off */
 const App = () => {
   const [num, setNum] = useState(0);
@@ -14,6 +14,7 @@ const App = () => {
 
   //useEffectを用いる numの値が変更された時のみ実行する
   useEffect(() => {
+    console.log("hoge");
     if (num > 0) {
       if (num % 3 === 0) {
         faceShowFlag || setFaceShowFlag(true);
